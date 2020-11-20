@@ -13,6 +13,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.exmple.androidnavigationcomponent.R;
+import com.exmple.androidnavigationcomponent.model.User;
 
 
 public class StartFragment extends Fragment {
@@ -36,7 +37,14 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                navController.navigate(R.id.action_startFragment_to_gameFragment);
+             /* StartFragmentDirections.ActionStartFragmentToGameFragment action = StartFragmentDirections.actionStartFragmentToGameFragment();
+              action.setMessage("this is the message ");
+              navController.navigate(action);*/
+
+                User user = new User(1,"Ajay");
+                StartFragmentDirections.ActionStartFragmentToGameFragment action = StartFragmentDirections.actionStartFragmentToGameFragment(user);
+                action.setMessage("this is the user message");
+                navController.navigate(action);
 
             }
         });

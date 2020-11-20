@@ -40,7 +40,7 @@ public class EndGameFragment extends Fragment {
                 //navController.navigate(R.id.action_endGameFragment_to_startFragment);
                 NavOptions navOptions = new NavOptions.Builder().build();
                 navController.navigate(R.id.action_endGameFragment_to_startFragment,null,navOptions);
-                
+
             }
         });
     }

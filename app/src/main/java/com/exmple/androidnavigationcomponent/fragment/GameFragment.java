@@ -8,16 +8,19 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.exmple.androidnavigationcomponent.R;
+import com.exmple.androidnavigationcomponent.model.User;
 
 
 public class GameFragment extends Fragment {
 
+    private static final String TAG = "GameFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +39,14 @@ public class GameFragment extends Fragment {
         finishGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (getArguments()!=null){
+                    GameFragmentArgs args = GameFragmentArgs.fromBundle(getArguments());
+                    String message = args.getMessage();
+                    Log.d(TAG, "onClick: "+message);
+                    User user = args.getUser();
+                    Log.d(TAG, "onClick: "+user.toString());
+                }
+
                 navController.navigate(R.id.action_gameFragment_to_endGameFragment);
 
             }
